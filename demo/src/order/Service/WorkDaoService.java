@@ -11,7 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
-import java.util.logging.SimpleFormatter;
+
 
 public class WorkDaoService implements WorkDao, BuyTicket, CreateTrain {
 
@@ -114,32 +114,50 @@ public class WorkDaoService implements WorkDao, BuyTicket, CreateTrain {
     }
 
     @Override
-    public Train[] createTrains() {
+    public  Train[] createTrains() throws ParseException {
 
 
-        Train train1 = new Train("G2000","和谐号",new Date(),new Date(),new Node("111"),500);
-
+        Train train1 = new Train("G2000","和谐号",creatDate("2022-4-22 08:00:00"),creatDate("2022-4-23 08:00:00"),createTrainNode("西安,上海,北京,杭州,南昌,广东"),500);
+        System.out.println(train1.toString());
         return new Train[0];
     }
 
+//字符串转date时间
+    public Date creatDate(String time) throws ParseException {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+       if(time.length()==0 || time.isEmpty()){
+           Date now = new Date();
+           String res = simpleDateFormat.format(now);
+           Date now1 = simpleDateFormat.parse(res);
+           return now1;
+       }else{
+           Date start = simpleDateFormat.parse(time);
+           return start;
+       }
+    }
 
-    public static void main(String[] args) throws ParseException {
 
-//        SimpleFormatter formatter = new SimpleFormatter();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+//车站的创建
 
-        String startTime = "2023-4-22";
+   public  Node createTrainNode(String msg){
 
-        String endTime =  "2023-4-23";
+        if(msg.isEmpty() || msg.length()==0){
+            return null;
+        }
+        String[] arr =  msg.split(",");
+        Node node1 = new Node("");
+        Node nodeHead = node1;
+        for(String s : arr){
+           Node node = new Node(s);
+           node1.setNext(node);
+           node1 = node;
+        }
+        System.out.println(nodeHead.getNext().toString());
+        return nodeHead.getNext();
+   }
 
-        Date start = simpleDateFormat.parse(startTime);
 
-        Date end = simpleDateFormat.parse(endTime);
-
-        System.out.println(simpleDateFormat.format(start));
-
-        System.out.println(simpleDateFormat.format(end));
-
+    public static void main(String[] args) throws ParseException{
 
     }
 }

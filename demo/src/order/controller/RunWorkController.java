@@ -3,6 +3,7 @@ package order.controller;
 import order.Do.User;
 import order.Service.WorkDaoService;
 
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class RunWorkController {
@@ -34,9 +35,15 @@ public class RunWorkController {
     }
 
 
-    public static void main(String[] args) {
+    public  void createTrain() throws ParseException {
+        service.createTrains();
+    }
+
+
+    public static void main(String[] args) throws ParseException {
         RunWorkController controller = new RunWorkController();
-        controller.Sign();
-        controller.login();
+//        controller.Sign();
+//        controller.login();
+        controller.createTrain();
     }
 }
