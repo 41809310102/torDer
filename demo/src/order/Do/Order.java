@@ -2,7 +2,7 @@ package order.Do;
 
 import java.util.Date;
 
-public class Order extends Train{
+public class Order extends Train {
 
     private String sfz;
 
@@ -12,11 +12,16 @@ public class Order extends Train{
 
     private Date creatOrderTime;
 
-    public Order(String id, String name, Date startTime, Date endTime, String[] arr, int seatNum) {
+    public Order(String id, String name, Date startTime, Date endTime, Node arr, int seatNum) {
         super(id, name, startTime, endTime, arr, seatNum);
     }
 
-    public Order(String id, String name, Date startTime, Date endTime, String[] arr, int seatNum, String sfz, String id1, float money, Date creatOrderTime) {
+    public Order() {
+        super();
+        return;
+    }
+
+    public Order(String id, String name, Date startTime, Date endTime, Node arr, int seatNum, String sfz, String id1, float money, Date creatOrderTime) {
         super(id, name, startTime, endTime, arr, seatNum);
         this.sfz = sfz;
         this.id = id1;

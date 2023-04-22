@@ -31,7 +31,6 @@ public class RunWorkController {
         user.setName(name);
         user.setPassword(passeword);
         service.login(user);
-
     }
 
 
