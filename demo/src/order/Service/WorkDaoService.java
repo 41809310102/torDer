@@ -114,12 +114,11 @@ public class WorkDaoService implements WorkDao, BuyTicket, CreateTrain {
     }
 
     @Override
-    public  Train[] createTrains() throws ParseException {
+    public  Train[] createTrains(String id, String name, String node) throws ParseException {
 
-
-        Train train1 = new Train("G2000","和谐号",creatDate("2022-4-22 08:00:00"),creatDate("2022-4-23 08:00:00"),createTrainNode("西安,上海,北京,杭州,南昌,广东"),500);
-        System.out.println(train1.toString());
-        return new Train[0];
+        Train train1 = new Train(id,name,creatDate("2022-4-22 08:00:00"),creatDate("2022-4-23 08:00:00"),createTrainNode(node),500);
+        Train[] trains = {train1};
+        return trains;
     }
 
 //字符串转date时间

@@ -95,7 +95,6 @@ public class Train {
 
     public String showNode(Node node){
         String list = "";
-        System.out.println(node.getName());
         while (node!=null){
             list = list + "站点:"+node.getName()+" 到达时间:"+"2023-04-22 4:00:00"+"\n";
             node = node.getNext();

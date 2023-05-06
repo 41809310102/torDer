@@ -6,7 +6,7 @@ import java.text.ParseException;
 
 public interface CreateTrain{
 
-    Train[] createTrains() throws ParseException;
+    Train[] createTrains(String id, String name, String node) throws ParseException;
 
 
 }

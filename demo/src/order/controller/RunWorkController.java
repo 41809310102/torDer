@@ -1,6 +1,7 @@
 package order.controller;
 
 import order.Do.User;
+import order.Service.WInChooseTrainService;
 import order.Service.WorkDaoService;
 
 import java.text.ParseException;
@@ -9,6 +10,8 @@ import java.util.Scanner;
 public class RunWorkController {
 
     WorkDaoService service = new WorkDaoService();
+
+    WInChooseTrainService wInChooseTrainService = new WInChooseTrainService();
 
     public void  Sign(){
         User user = new User(1);
@@ -35,15 +38,13 @@ public class RunWorkController {
     }
 
 
-    public  void createTrain() throws ParseException {
-        service.createTrains();
-    }
+   public void SearchTrain(String startLocal,String endLocal) throws ParseException {
+        wInChooseTrainService.SearchTrain(startLocal,endLocal);
+   }
 
 
     public static void main(String[] args) throws ParseException {
-        RunWorkController controller = new RunWorkController();
-//        controller.Sign();
-//        controller.login();
-        controller.createTrain();
+
+
     }
 }
