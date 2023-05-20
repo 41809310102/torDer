@@ -14,7 +14,7 @@ import java.text.ParseException;
 public interface WinChooseTrain {
 
     // ===       1.查询当前车次       ===
-    public Train SearchTrain(String startLocal, String endLocal) throws ParseException;
+    public Train[] SearchTrain(String startLocal, String endLocal) throws ParseException;
 
     // ===       2.选 择 车 次       ===
     public Train ChooseTrain();

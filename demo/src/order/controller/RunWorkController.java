@@ -1,5 +1,6 @@
 package order.controller;
 
+import order.Do.Train;
 import order.Do.User;
 import order.Service.WInChooseTrainService;
 import order.Service.WorkDaoService;
@@ -38,8 +39,8 @@ public class RunWorkController {
     }
 
 
-   public void SearchTrain(String startLocal,String endLocal) throws ParseException {
-        wInChooseTrainService.SearchTrain(startLocal,endLocal);
+   public Train[] SearchTrain(String startLocal, String endLocal) throws ParseException {
+        return wInChooseTrainService.SearchTrain(startLocal,endLocal);
    }
 
 

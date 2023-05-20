@@ -116,7 +116,7 @@ public class WorkDaoService implements WorkDao, BuyTicket, CreateTrain {
     @Override
     public  Train[] createTrains(String id, String name, String node) throws ParseException {
 
-        Train train1 = new Train(id,name,creatDate("2022-4-22 08:00:00"),creatDate("2022-4-23 08:00:00"),createTrainNode(node),500);
+        Train train1 = new Train(id,name,creatDate("2022-4-22 08:00:00"),creatDate("2022-4-23 08:00:00"),createTrainNode(node),500,635.4f);
         Train[] trains = {train1};
         return trains;
     }
@@ -151,7 +151,6 @@ public class WorkDaoService implements WorkDao, BuyTicket, CreateTrain {
            node1.setNext(node);
            node1 = node;
         }
-        System.out.println(nodeHead.getNext().toString());
         return nodeHead.getNext();
    }
 

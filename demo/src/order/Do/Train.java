@@ -19,6 +19,24 @@ public class Train {
 
     private int seatNum;
 
+    private float money;
+
+    public float getMoney() {
+        return money;
+    }
+
+    public void setMoney(float money) {
+        this.money = money;
+    }
+
+    public SimpleDateFormat getFormat() {
+        return format;
+    }
+
+    public void setFormat(SimpleDateFormat format) {
+        this.format = format;
+    }
+
     public Train(String id, String name, Date startTime, Date endTime, Node arr, int seatNum) {
         this.id = id;
         this.name = name;
@@ -26,6 +44,16 @@ public class Train {
         this.endTime = endTime;
         this.arr = arr;
         this.seatNum = seatNum;
+    }
+
+    public Train(String id, String name, Date startTime, Date endTime, Node arr, int seatNum,float money) {
+        this.id = id;
+        this.name = name;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.arr = arr;
+        this.seatNum = seatNum;
+        this.money = money;
     }
 
     public Train() {
@@ -89,6 +117,7 @@ public class Train {
                 ", 到站时间=" + format.format(endTime) +"\n"+
                 ", 站点信息:" + showNode(arr) +
                 ", 座位数=" + seatNum +
+                ", 价格=" + money +
                 '}';
     }
 
