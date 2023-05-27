@@ -4,6 +4,7 @@ import order.Dao.BuyTicket;
 import order.Dao.CreateTrain;
 import order.Dao.WorkDao;
 import order.Do.Node;
+import order.Do.Order;
 import order.Do.Train;
 import order.Do.User;
 
@@ -104,8 +105,27 @@ public class WorkDaoService implements WorkDao, BuyTicket, CreateTrain {
     }
 
     @Override
-    public int buyTicket(User user) {
-        return 0;
+    public Order buyTicket(User user, Train train) {
+        if(user==null || train==null){
+            System.out.println("数据异常，无法购买车票");
+            return null;
+        }
+        Order order = new Order();
+        order.setCreatOrderTime(new Date());
+        order.setName(user.getName());
+        order.setId("4368372874989348");
+        order.setEndTime(train.getEndTime());
+        order.setStartTime(train.getStartTime());
+        order.setMoney(train.getMoney());
+        order.setSfz(user.getSfz());
+        order.setArr(train.getArr());
+        order.setSeatNum(train.getSeatNum());
+        if(order.getId()!=null){
+            System.out.println("订单生成成功，等待支付.....");
+            return order;
+        }else{
+            return null;
+        }
     }
 
     @Override

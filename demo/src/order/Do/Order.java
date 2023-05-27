@@ -12,6 +12,11 @@ public class Order extends Train {
 
     private Date creatOrderTime;
 
+    @Override
+    public void setSeatNum(int seatNum) {
+        super.setSeatNum(seatNum);
+    }
+
     public Order(String id, String name, Date startTime, Date endTime, Node arr, int seatNum) {
         super(id, name, startTime, endTime, arr, seatNum);
     }

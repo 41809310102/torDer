@@ -1,5 +1,6 @@
 package order.controller;
 
+import order.Do.Order;
 import order.Do.Train;
 import order.Do.User;
 import order.Service.WInChooseTrainService;
@@ -41,6 +42,11 @@ public class RunWorkController {
 
    public Train[] SearchTrain(String startLocal, String endLocal) throws ParseException {
         return wInChooseTrainService.SearchTrain(startLocal,endLocal);
+   }
+
+
+   public Order createOrder(User user, Train train){
+        return service.buyTicket(user,train);
    }
 
 
